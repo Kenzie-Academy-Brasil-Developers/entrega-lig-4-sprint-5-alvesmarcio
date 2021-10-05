@@ -9,7 +9,7 @@ const boardSize = {
 
 
 
-const tabuleiro = document.querySelector("#tabuleiro");
+
 
 // ============================ Functions ======================//
 
@@ -35,7 +35,7 @@ generateBoard(board, boardSize)
 
 // ============================ Listeners ======================//
 
-tabuleiro.addEventListener("click", (evt) => {
+board.addEventListener("click", (evt) => {
     let disco = document.createElement("div");
     let contagem = this.childElementCount;
     console.log(contagem, ' discos nas colunas')
