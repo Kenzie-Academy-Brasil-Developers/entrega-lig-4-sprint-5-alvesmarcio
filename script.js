@@ -9,7 +9,7 @@ const boardSize = {
 let player = true;
 let discoAtual
 // ============================ Functions ======================//
-
+let numero = 0
 const generateBoard = (container, size) => {
   for (let i = 0; i < size.columns; i++) {
     const row = document.createElement("div");
@@ -17,103 +17,141 @@ const generateBoard = (container, size) => {
     row.id = `C${i}`;
     for (let j = 0; j < size.rows; j++) {
       const cell = document.createElement("div");
-      cell.id = `E${i}${j}`;
+      cell.id = `E${numero}`;
       cell.classList.add("cell");
       row.appendChild(cell);
+      numero++
     }
+    container.appendChild(row);
+}
 }
 
-generateBoard(board, boardSize)
-
 function victory_vertical(discoatual) {
+
     let idAtual = Number(discoatual.id.replace("E",""))
     let contador = 1
     for (let i = 1; i <= 4; i++ ) {
-        const proximodisco = document.querySelector(`E${idAtual + i}`)
-        if (proximodisco !== null && proximodisco.style.backgroundColor == discoatual.style.backgroundColor && 
+        const proximodisco = document.querySelector(`#E${idAtual + i}`)
+        if (proximodisco === null) {
+            return false
+        }
+        
+        if (proximodisco.className == discoatual.className && 
             proximodisco.parentNode == discoatual.parentNode) {
-            contador++
-        }
-        else{
-            break
+                contador++
+            if (contador == 4) {
+                return true
+            } 
         }
     }
-    for(let i = 1; i <= 4; i++) {
-        const proximodisco = document.querySelector(`E${idAtual - i}`)
-        if (proximodisco !== null && proximodisco.style.backgroundColor === discoatual.style.backgroundColor &&
-            proximodisco.parentNode === discoatual.parentNode) {
-            contador++
-        }
-        else{
-            break
-        } 
-    }
-    if (contador == 4) {
-        return true
-    } 
-    else {
-       return  false
-    }
+    return false 
 }
+
 function victory_horizontal(discoatual) {
     let idAtual = Number(discoatual.id.replace("E",""))
     let contador = 1
-    for (let i = 10; i <= 40; i += 10 ) {
-        const proximodisco = document.querySelector(`.E${idAtual + i}`)
-        if (proximodisco !== null && proximodisco.style.backgroundColor === discoatual.style.backgroundColor) {
+    for (let i = 6; i <= 24; i += 6 ) {
+        const proximodisco = document.querySelector(`#E${idAtual + i}`)
+        if(proximodisco == null) {
+            break
+        } 
+        if (proximodisco.className == discoatual.className) {
             contador++
+            if (contador == 4) {
+                
+                return true
+            }
         }
         else{
             break
         }
     }
-    for(let i = 10; i <= 40; i += 10) {
-        const proximodisco = document.querySelector(`.E${idAtual - i}`)
-        if (proximodisco !== null && proximodisco.style.backgroundColor === discoatual.style.backgroundColor) {
+    for(let j = 6; j <= 24; j += 6 ) {
+        
+        const proximodisco = document.querySelector(`#E${idAtual - j}`)
+        if(proximodisco == null) {
+            break
+        } 
+        if (proximodisco.className === discoatual.className) {
             contador++
+            console.log(contador)
+            if (contador == 4) {
+                return true
+            }
         }
         else{
             break
         } 
     }
-    if (contador == 4) {
-        return true
-    } 
-    else {
-       return  false
-    }
-
-
-
+    
+    return false
 }
-function victory_diagonal() {
+function victory_diagonal(discoatual) {
     let idAtual = Number(discoatual.id.replace("E",""))
     let contador = 1
-    for (let i = 9; i <= 36; i += 9 ) {
-        const proximodisco = document.querySelector(`.E${idAtual + i}`)
-        if (proximodisco !== null && proximodisco.style.backgroundColor === discoatual.style.backgroundColor) {
+    for (let i = 5; i <= 20; i += 5 ) {
+        const proximodisco = document.querySelector(`#E${idAtual + i}`)
+        if(proximodisco == null) {
+            break
+        } 
+        if (proximodisco.className == discoatual.className) {
             contador++
+            if (contador == 4) {
+                
+                return true
+            }
         }
         else{
             break
         }
     }
-    for(let i = 9; i <= 36; i += 9) {
-        const proximodisco = document.querySelector(`.E${idAtual - i}`)
-        if (proximodisco !== null && proximodisco.style.backgroundColor === discoatual.style.backgroundColor) {
+    for(let i = 7; i <= 28; i += 7 ) {
+        const proximodisco = document.querySelector(`#E${idAtual - i}`)
+        if(proximodisco == null) {
+            break
+        } 
+        if (proximodisco.className === discoatual.className) {
             contador++
+            if (contador == 4) {
+                return true
+            }
         }
         else{
             break
         } 
     }
-    if (contador == 4) {
-        return true
-    } 
-    else {
-       return  false
+    for (let i = 5; i <= 20; i += 5 ) {
+        const proximodisco = document.querySelector(`#E${idAtual - i}`)
+        if(proximodisco == null) {
+            break
+        } 
+        if (proximodisco.className == discoatual.className) {
+            contador++
+            if (contador == 4) {
+                
+                return true
+            }
+        }
+        else{
+            break
+        }
     }
-
+    for(let i = 7; i <= 28; i += 7 ) {
+        const proximodisco = document.querySelector(`#E${idAtual + i}`)
+        if(proximodisco == null) {
+            break
+        } 
+        if (proximodisco.className === discoatual.className) {
+            contador++
+            if (contador == 4) {
+                return true
+            }
+        }
+        else{
+            break
+        } 
+    }
+    return false
 }
 
 function draw() {
@@ -127,9 +165,7 @@ function draw() {
     }
 }
 
-    container.appendChild(row);
-  }
-};
+
 
 generateBoard(board, boardSize);
 
@@ -141,21 +177,25 @@ board.addEventListener("click", (evt) => {
     coluna = coluna.parentNode;
   };
   let selecionaDisco = coluna.children;
-  console.log(selecionaDisco.length - 1, 'length')
   for (let i = selecionaDisco.length - 1; i >= 0; i--) {
-      console.log(i, 'check i')
       if (selecionaDisco[i].classList.length == 1 && player == true) {
           selecionaDisco[i].classList.add("player1");
           player = false;
           discoAtual = selecionaDisco[i]
-
+          victory_vertical(discoAtual)
+          victory_horizontal(discoAtual)
+          victory_diagonal(discoAtual)
+          draw()
           break;
       }
       if (selecionaDisco[i].classList.length == 1 && player == false) {
           selecionaDisco[i].classList.add("player2");
           player = true;
           discoAtual = selecionaDisco[i];
-
+          victory_vertical(discoAtual)
+          victory_horizontal(discoAtual)
+          victory_diagonal(discoAtual)
+          draw()
           break;
       }
   }
