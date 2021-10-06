@@ -5,6 +5,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 #tabuleiro {
     display: flex;
@@ -42,4 +43,9 @@ body{
 
 .player2 {
     background-color: yellow;
+}
+.reset {
+    width: 80px;
+    height: 30px;
+    background-color: yellow
 }
