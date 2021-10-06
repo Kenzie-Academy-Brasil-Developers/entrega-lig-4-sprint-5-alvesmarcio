@@ -1,6 +1,6 @@
 // ============================ CONSTS ======================== //
 const board = document.getElementById("tabuleiro");
-
+const reset = document.querySelector(".reset")
 const boardSize = {
   columns: 7,
   rows: 6,
@@ -9,8 +9,8 @@ const boardSize = {
 let player = true;
 let discoAtual
 // ============================ Functions ======================//
-let numero = 0
 const generateBoard = (container, size) => {
+  let numero = 0  
   for (let i = 0; i < size.columns; i++) {
     const row = document.createElement("div");
     row.classList.add("column");
@@ -24,6 +24,36 @@ const generateBoard = (container, size) => {
     }
     container.appendChild(row);
 }
+}
+function select_player(evt) {
+    let coluna = evt.target;
+    if (coluna.classList.contains("cell")) {
+        coluna = coluna.parentNode;
+    };
+    let selecionaDisco = coluna.children;
+    for (let i = selecionaDisco.length - 1; i >= 0; i--) {
+        if (selecionaDisco[i].classList.length == 1 && player == true) {
+            selecionaDisco[i].classList.add("player1");
+            player = false;
+            discoAtual = selecionaDisco[i]
+            let jogador = "Player 1"
+            let vitoria = victory_check(discoAtual)
+            victory_alert(vitoria,jogador)
+            draw()
+            break;
+        }
+        if (selecionaDisco[i].classList.length == 1 && player == false) {
+            selecionaDisco[i].classList.add("player2");
+            player = true;
+            discoAtual = selecionaDisco[i];
+            let jogador = "Player 2"
+            let vitoria = victory_check(discoAtual)
+            victory_alert(vitoria,jogador)
+            draw()
+            break;
+      }
+  }
+
 }
 
 function victory_vertical(discoatual) {
@@ -74,7 +104,6 @@ function victory_horizontal(discoatual) {
         } 
         if (proximodisco.className === discoatual.className) {
             contador++
-            console.log(contador)
             if (contador == 4) {
                 return true
             }
@@ -164,6 +193,38 @@ function draw() {
         return false
     }
 }
+function victory_check(discoatual) {
+    if(victory_vertical(discoatual)) {
+        return true
+    }
+    if(victory_horizontal(discoatual)) {
+        return true
+    }
+    if(victory_diagonal(discoatual)) {
+        return true
+    }
+    return false
+}
+
+function reset_game() {
+    board.innerHTML = ""
+    reset.style.display = "initial"
+    player = true
+    generateBoard(board,boardSize)
+}
+
+
+
+
+
+function victory_alert(vitoria,jogador) {
+    if (vitoria == true){
+        board.innerHTML = ""
+        board.innerText = `${jogador} Venceu!!`
+        reset.style.display = "none"
+        setTimeout(reset_game,5000)
+    }
+}
 
 
 
@@ -171,32 +232,5 @@ generateBoard(board, boardSize);
 
 // ============================ Listeners ======================//
 
-board.addEventListener("click", (evt) => {
-  let coluna = evt.target;
-  if (coluna.classList.contains("cell")) {
-    coluna = coluna.parentNode;
-  };
-  let selecionaDisco = coluna.children;
-  for (let i = selecionaDisco.length - 1; i >= 0; i--) {
-      if (selecionaDisco[i].classList.length == 1 && player == true) {
-          selecionaDisco[i].classList.add("player1");
-          player = false;
-          discoAtual = selecionaDisco[i]
-          victory_vertical(discoAtual)
-          victory_horizontal(discoAtual)
-          victory_diagonal(discoAtual)
-          draw()
-          break;
-      }
-      if (selecionaDisco[i].classList.length == 1 && player == false) {
-          selecionaDisco[i].classList.add("player2");
-          player = true;
-          discoAtual = selecionaDisco[i];
-          victory_vertical(discoAtual)
-          victory_horizontal(discoAtual)
-          victory_diagonal(discoAtual)
-          draw()
-          break;
-      }
-  }
-});
+board.addEventListener("click", select_player);
+reset.addEventListener("click", reset_game)
