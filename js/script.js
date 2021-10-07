@@ -1,4 +1,3 @@
-
 // ======================== MAIN FUNCTIONS ======================//
 
 function victory_check(discoatual) {
