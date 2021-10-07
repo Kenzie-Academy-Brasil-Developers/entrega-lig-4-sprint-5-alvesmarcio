@@ -135,6 +135,7 @@ ul {
     width: 25%;
     display: flex;
     justify-content: space-between;
+    display: none;
 }
 .fechar {
     font-family: "South Park";
@@ -143,4 +144,27 @@ ul {
     background: linear-gradient(135deg, var(--color-pavis) 20%, var(--color-hudlino) 80%);
     border-radius: 100%;
     border: 1px dotted black;
+}
+.iniciar {
+    font-family: "South Park";
+    width: 150px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--color-pavis) 20%, var(--color-hudlino) 80%);
+    border-radius: 5px;
+    border: 1px dotted black;
+    font-size: 34px;
+}
+.confronto {
+    font-size: 130px;
+    text-shadow: 2px 2px white;
+    color: var(--color-pavis);
+    font-weight: bold;
+    text-align: center;
+}
+.inicial_menssage {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    height: 80%;
+    justify-content: space-around;
 }

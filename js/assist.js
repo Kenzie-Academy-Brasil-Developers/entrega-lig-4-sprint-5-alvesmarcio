@@ -44,7 +44,7 @@ function select_player(evt) {
       let vitoria = victory_check(discoAtual);
       let empate = draw()
       let n = 2
-      //victory_alert(vitoria, jogador,src_img,n);
+      victory_alert(vitoria, jogador,src_img,n);
       draw_alert(empate);
       break;
     }
