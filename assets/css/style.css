@@ -24,13 +24,13 @@ body{
     font-family: "South Park";
     display: flex;
     width: 90vw;
-    height: 78vh;
-    margin: 5em auto;
+    height: 45vh;
+    margin: 2em auto;
     margin-bottom: 2em;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     max-width: 1000px;
-    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.6);
+    box-shadow: 0px 0px 5px 5px rgb(0 0 0 / 60%);
 }
 
 .column {
@@ -64,10 +64,31 @@ body{
 
 .player1 {
     background-color: blue;
+    background-image: url(../img/pavis.jpg);
+    background-size: cover;
 }
 
 .player2 {
     background-color: yellow;
+    background-image: url(../img/hudlino.jpg);
+    background-size: cover;
+}
+@keyframes rotationInv {
+    from {
+        transform: rotate(359deg);
+    }
+    to {
+        transform: rotate(0deg)
+    }
+
+}
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
 }
 
 .reset {
@@ -79,6 +100,7 @@ body{
     border: 1px dotted black;
     margin-bottom: 3em;
 }
+
 .victory_menssage {
     font-size: 150px;
     text-shadow: 2px 2px white;
@@ -132,11 +154,12 @@ ul {
     margin-bottom: 3em;
 }
 .buttons {
-    width: 25%;
+    width: 70%;
     display: flex;
     justify-content: space-between;
     display: none;
 }
+
 .fechar {
     font-family: "South Park";
     width: 30px;
@@ -145,6 +168,7 @@ ul {
     border-radius: 100%;
     border: 1px dotted black;
 }
+
 .iniciar {
     font-family: "South Park";
     width: 150px;
@@ -167,4 +191,27 @@ ul {
     align-items: center;
     height: 80%;
     justify-content: space-around;
+
+.trilha {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    #tabuleiro {
+        font-family: "South Park";
+        display: flex;
+        width: 90vw;
+        height: 78vh;
+        margin: 5em auto;
+        margin-bottom: 2em;
+        justify-content: center;
+        align-items:center;
+        max-width: 1000px;
+        box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.6);
+    }
+
+    .buttons {
+        width: 25%;
+    }
+ 
 }
