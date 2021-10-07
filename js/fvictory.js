@@ -91,8 +91,6 @@ function victory_diagonal_right(discoatual) {
         } 
         if (proximodisco.className === discoatual.className) {
             contador++
-            console.log(contador, 'contador -')
-
             if (contador == 4) {
                 return true
             }

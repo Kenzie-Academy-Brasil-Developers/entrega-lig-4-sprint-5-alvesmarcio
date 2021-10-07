@@ -26,20 +26,26 @@ function select_player(evt) {
       selecionaDisco[i].classList.add("player1");
       player = false;
       discoAtual = selecionaDisco[i];
-      let jogador = "Player 1";
+      let jogador = "Pavis";
+      src_img = "assets/img/pavis_deixoto.png"
       let vitoria = victory_check(discoAtual);
-      victory_alert(vitoria, jogador);
-      draw();
+      let empate = draw()
+      let n = 1
+      victory_alert(vitoria, jogador,src_img,n);
+      draw_alert(empate);
       break;
     }
     if (selecionaDisco[i].classList.length == 1 && player == false) {
       selecionaDisco[i].classList.add("player2");
       player = true;
       discoAtual = selecionaDisco[i];
-      let jogador = "Player 2";
+      let jogador = "Hudolino";
+      src_img = "assets/img/hudlino_caroson.png"
       let vitoria = victory_check(discoAtual);
-      victory_alert(vitoria, jogador);
-      draw();
+      let empate = draw()
+      let n = 2
+      victory_alert(vitoria, jogador,src_img,n);
+      draw_alert(empate);
       break;
     }
   }

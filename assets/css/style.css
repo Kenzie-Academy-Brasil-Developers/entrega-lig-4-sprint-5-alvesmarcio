@@ -15,7 +15,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-image: url(/assets/img/southpark_background.jpg);
+    background-image: url(../img/southpark_background.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -78,4 +78,31 @@ body{
     border-radius: 5px;
     border: 1px dotted black;
     margin-bottom: 3em;
+}
+.victory_menssage {
+    font-size: 150px;
+    text-shadow: 2px 2px white;
+    color: var(--color-pavis);
+    font-weight: bold;
+    text-align: center;
+}
+.img1_victory {
+    width: 440px;
+}
+.img2_victory {
+    width: 300px;
+} 
+.draw_manssage {
+    font-size: 150px;
+    text-shadow: 2px 2px white;
+    color: var(--color-pavis);
+    font-weight: bold;
+    text-align: center;
+}
+.img1_draw {
+    width: 430px;
+
+}
+.img2_draw {
+    width: 282px;
 }
