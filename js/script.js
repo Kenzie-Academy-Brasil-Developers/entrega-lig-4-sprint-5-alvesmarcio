@@ -18,7 +18,7 @@ function victory_check(discoatual) {
 
 function reset_game() {
     board.innerHTML = ""
-    reset.style.display = "initial"
+    buttons.style.display = "flex"
     player = true
     generateBoard(board,boardSize)
 }
@@ -34,13 +34,14 @@ function victory_alert(vitoria,jogador,src,n) {
         img.classList.add(`img${n}_victory`)
         board.appendChild(img)
         board.appendChild(texto)
-        reset.style.display = "none"
+        buttons.style.display = "none"
         setTimeout(reset_game,5000)
     }
 }
 function draw_alert(empate) {
     if(empate == true) {
         board.innerHTML = ""
+        board.removeEventListener("click", select_player)
         let texto = document.createElement("p")
         let small_container = document.createElement("div")
         let container = document.createElement("div")
@@ -59,10 +60,18 @@ function draw_alert(empate) {
         container.appendChild(small_container)
         container.appendChild(texto)
         board.appendChild(container)
-        reset.style.display = "none"
+        buttons.style.display = "none"
         setTimeout(reset_game,5000)
     }
 }
+function openRegras() {
+    regras.style.display = "initial"
+}
+function closeRegras() {
+    regras.style.display = "none"
+}
+
+
 
 generateBoard(board, boardSize);
 
@@ -70,3 +79,6 @@ generateBoard(board, boardSize);
 
 board.addEventListener("click", select_player);
 reset.addEventListener("click", reset_game)
+button_regras.addEventListener("click", openRegras)
+fechar.addEventListener("click",closeRegras)
+
