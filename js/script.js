@@ -20,6 +20,7 @@ function reset_game() {
     board.addEventListener("click", select_player);
     board.innerHTML = ""
     buttons.style.display = "flex"
+    inicial_menssage.style.display = "none"
     player = true
     generateBoard(board,boardSize)
 }
@@ -75,7 +76,7 @@ function closeRegras() {
 
 
 
-generateBoard(board, boardSize);
+
 
 // ============================ Listeners ======================//
 
@@ -83,4 +84,5 @@ board.addEventListener("click", select_player);
 reset.addEventListener("click", reset_game)
 button_regras.addEventListener("click", openRegras)
 fechar.addEventListener("click",closeRegras)
+iniciar.addEventListener("click", reset_game)
 
