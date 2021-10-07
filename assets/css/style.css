@@ -1,19 +1,36 @@
 :root {
     --square-size: 10vw;
+    --color-pavis: #d81c3f;
+    --color-hudlino: #b266ab;
 }
+
+@font-face {
+    font-family: "South Park";
+    src: url(/assets/southpark.ttf) format("ttf");
+}
+
 body{
+    font-family: "South Park";
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-image: url(/assets/img/southpark_background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
+
 #tabuleiro {
+    font-family: "South Park";
     display: flex;
-    width: 95%;
+    width: 90vw;
+    height: 78vh;
     margin: 5em auto;
+    margin-bottom: 2em;
     justify-content: center;
     align-items:center;
     max-width: 1000px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.6);
 }
 
 .column {
@@ -27,25 +44,38 @@ body{
     padding:0 5px;
 }
 
+.column:nth-child(odd) {
+    background-color: var(--color-hudlino);
+}
+
+.column:nth-child(even) {
+    background-color: var(--color-pavis);
+}
+
 .cell {
     margin: 5px;
-    background-color: blue;
     height: var(--square-size);
     width: var(--square-size);
     max-width: 100px;
     max-height: 100px;
     border-radius: 50%;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.6) inset;
 }
 
 .player1 {
-    background-color: red;
+    background-color: blue;
 }
 
 .player2 {
     background-color: yellow;
 }
+
 .reset {
+    font-family: "South Park";
     width: 80px;
     height: 30px;
-    background-color: yellow
+    background: linear-gradient(135deg, var(--color-pavis) 20%, var(--color-hudlino) 80%);
+    border-radius: 5px;
+    border: 1px dotted black;
+    margin-bottom: 3em;
 }
