@@ -17,6 +17,7 @@ function victory_check(discoatual) {
 }
 
 function reset_game() {
+    board.addEventListener("click", select_player);
     board.innerHTML = ""
     buttons.style.display = "flex"
     player = true
@@ -26,6 +27,7 @@ function reset_game() {
 function victory_alert(vitoria,jogador,src,n) {
     if (vitoria == true){
         board.innerHTML = ""
+        board.removeEventListener("click", select_player)
         let texto = document.createElement("p")
         texto.innerText = `${jogador}\n Venceu!`
         texto.classList.add("victory_menssage")
