@@ -24,13 +24,13 @@ body{
     font-family: "South Park";
     display: flex;
     width: 90vw;
-    height: 78vh;
-    margin: 5em auto;
+    height: 45vh;
+    margin: 2em auto;
     margin-bottom: 2em;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     max-width: 1000px;
-    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.6);
+    box-shadow: 0px 0px 5px 5px rgb(0 0 0 / 60%);
 }
 
 .column {
@@ -154,10 +154,11 @@ ul {
     margin-bottom: 3em;
 }
 .buttons {
-    width: 25%;
+    width: 70%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
+
 .fechar {
     font-family: "South Park";
     width: 30px;
@@ -169,4 +170,24 @@ ul {
 
 .trilha {
     display: none;
+}
+
+@media screen and (min-width: 768px) {
+    #tabuleiro {
+        font-family: "South Park";
+        display: flex;
+        width: 90vw;
+        height: 78vh;
+        margin: 5em auto;
+        margin-bottom: 2em;
+        justify-content: center;
+        align-items:center;
+        max-width: 1000px;
+        box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.6);
+    }
+
+    .buttons {
+        width: 25%;
+    }
+ 
 }
