@@ -64,10 +64,31 @@ body{
 
 .player1 {
     background-color: blue;
+    background-image: url(../img/pavis.jpg);
+    background-size: cover;
 }
 
 .player2 {
     background-color: yellow;
+    background-image: url(../img/hudlino.jpg);
+    background-size: cover;
+}
+@keyframes rotationInv {
+    from {
+        transform: rotate(359deg);
+    }
+    to {
+        transform: rotate(0deg)
+    }
+
+}
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
 }
 
 .reset {
