@@ -25,7 +25,7 @@ function select_player(evt) {
     const rotationSpeed = Math.floor(Math.random() * 10 + 1);
     const rotationDirection =
       Math.round(Math.random()) === 1 ? "rotation" : "rotationInv";
-    if (selecionaDisco[i].classList.length == 1 && player == true) {
+    if (selecionaDisco[i].classList.length == 1 && player == true && selecionaDisco[i].classList.contains("cell")) {
       selecionaDisco[i].classList.add("player1");
       selecionaDisco[
         i
@@ -41,7 +41,7 @@ function select_player(evt) {
       draw_alert(empate);
       break;
     }
-    if (selecionaDisco[i].classList.length == 1 && player == false) {
+    if (selecionaDisco[i].classList.length == 1 && player == false && selecionaDisco[i].classList.contains("cell")) {
       selecionaDisco[i].classList.add("player2");
       selecionaDisco[
         i

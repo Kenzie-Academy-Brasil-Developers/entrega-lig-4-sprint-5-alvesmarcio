@@ -250,8 +250,17 @@ ul {
 button {
   cursor: wait;
 }
-
 @media screen and (min-width: 768px) {
+  .pavisdeixoto, .hudlinocaroson {
+    top: 75%;
+  }
+  #tabuleiro {
+    height: 60vh;
+  }
+  
+}
+
+@media screen and (min-width: 1570px) {
   #tabuleiro {
     font-family: "South Park";
     display: flex;
