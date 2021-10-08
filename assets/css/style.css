@@ -1,0 +1,318 @@
+:root {
+  --square-size: 10vw;
+  --color-pavis: #d81c3f;
+  --color-hudlino: #b266ab;
+}
+
+@font-face {
+  font-family: "South Park";
+  src: url(/assets/southpark.ttf) format("ttf");
+}
+
+body {
+  font-family: "South Park";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url(../img/southpark_background.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+#tabuleiro {
+  font-family: "South Park";
+  display: flex;
+  width: 90vw;
+  height: 45vh;
+  margin: 2em auto;
+  margin-bottom: 2em;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  box-shadow: 0px 0px 5px 5px rgb(0 0 0 / 60%);
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 14%;
+  height: 100%;
+  outline: 1px solid;
+  padding: 0 5px;
+}
+
+.column:nth-child(odd) {
+  background-color: var(--color-hudlino);
+}
+
+.column:nth-child(even) {
+  background-color: var(--color-pavis);
+}
+
+.cell {
+  margin: 5px;
+  height: var(--square-size);
+  width: var(--square-size);
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.6) inset;
+}
+
+.player1 {
+  background-color: blue;
+  background-image: url(../img/pavis.jpg);
+  background-size: cover;
+}
+
+.player2 {
+  background-color: yellow;
+  background-image: url(../img/hudlino.jpg);
+  background-size: cover;
+}
+
+@keyframes rotationInv {
+  from {
+    transform: rotate(359deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.reset {
+  font-family: "South Park";
+  width: 80px;
+  height: 30px;
+  background: linear-gradient(
+    135deg,
+    var(--color-pavis) 20%,
+    var(--color-hudlino) 80%
+  );
+  border-radius: 5px;
+  border: 1px dotted black;
+  margin-bottom: 3em;
+}
+
+.victory_menssage {
+  font-size: 40px;
+  text-shadow: 2px 2px white;
+  color: var(--color-pavis);
+  font-weight: bold;
+  text-align: center;
+}
+
+.img1_victory {
+  width: 175px;
+}
+
+.img2_victory {
+  width: 150px;
+}
+
+.draw_manssage {
+  font-size: 40px;
+  text-shadow: 2px 2px white;
+  color: var(--color-hudlino);
+  font-weight: bold;
+  text-align: center;
+}
+
+.img1_draw {
+  width: 160px;
+  height: 160px;
+}
+
+.img2_draw {
+  width: 110px;
+  height: 160px;
+}
+
+.regras {
+  font-family: "South Park";
+  position: absolute;
+  left: 50%;
+  margin-left: -160px;
+  width: 320px;
+  height: 330px;
+  background-color: black;
+  color: white;
+  box-shadow: 0px 0px 25px 15px white;
+  display: none;
+}
+
+ul {
+  list-style: disc;
+  list-style-position: inside;
+  font-size: 26px;
+}
+
+.button_regras {
+  font-family: "South Park";
+  width: 80px;
+  height: 30px;
+  background: linear-gradient(
+    135deg,
+    var(--color-pavis) 20%,
+    var(--color-hudlino) 80%
+  );
+  border-radius: 5px;
+  border: 1px dotted black;
+  margin-bottom: 3em;
+}
+
+.buttons {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  display: none;
+}
+
+.fechar {
+  font-family: "South Park";
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(
+    135deg,
+    var(--color-pavis) 20%,
+    var(--color-hudlino) 80%
+  );
+  border-radius: 100%;
+  border: 1px dotted black;
+}
+
+.iniciar {
+  font-family: "South Park";
+  width: 90px;
+  height: 50px;
+  background: linear-gradient(
+    135deg,
+    var(--color-pavis) 20%,
+    var(--color-hudlino) 80%
+  );
+  border-radius: 5px;
+  border: 1px dotted black;
+  font-size: 18px;
+}
+
+.confronto {
+  font-size: 55px;
+  text-shadow: 2px 2px white;
+  color: var(--color-pavis);
+  font-weight: bold;
+  text-align: center;
+}
+
+.inicial_menssage {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  height: 80%;
+  justify-content: space-around;
+}
+
+.pavisdeixoto {
+  width: 175px;
+  height: 175px;
+  position: absolute;
+  top: 63%;
+  left: 1%;
+  display: none;
+}
+
+.hudlinocaroson {
+  width: 130px;
+  height: 175px;
+  position: absolute;
+  top: 63%;
+  right: 1%;
+  display: none;
+}
+
+.trilha {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  #tabuleiro {
+    font-family: "South Park";
+    display: flex;
+    width: 90vw;
+    height: 78vh;
+    margin: 5em auto;
+    margin-bottom: 2em;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.6);
+  }
+
+  .buttons {
+    width: 25%;
+  }
+
+  .confronto {
+    font-size: 130px;
+  }
+
+  .iniciar {
+    width: 150px;
+    font-size: 34px;
+  }
+
+  .regras {
+    margin-left: -180px;
+    width: 360px;
+    height: 300px;
+  }
+
+  .victory_menssage {
+    font-size: 150px;
+  }
+
+  .img1_victory {
+    width: 440px;
+  }
+
+  .img2_victory {
+    width: 300px;
+  }
+
+  .draw_manssage {
+    font-size: 150px;
+  }
+
+  .img1_draw {
+    width: 430px;
+    height: 430px;
+  }
+
+  .img2_draw {
+    width: 282px;
+    height: 430px;
+  }
+
+  .pavisdeixoto {
+    width: 280px;
+    height: 280px;
+    top: 58%;
+  }
+
+  .hudlinocaroson {
+    width: 190px;
+    height: 280px;
+    top: 58%;
+  }
+}

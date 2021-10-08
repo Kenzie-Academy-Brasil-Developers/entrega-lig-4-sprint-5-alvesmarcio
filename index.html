@@ -1,17 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lig-4</title>
-    <link rel="stylesheet" href="./reset.css">
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <div class="regras">
+      <button class="fechar">X</button>
+      <ul>
+        <li>
+          Ambos os jogadores jogam as suas peças no tabuleiro, uma peça por
+          jogada.
+        </li>
+        <li>
+          A peça jogada deve sempre ser colocada na primeira posição vazia da
+          respectiva coluna.
+        </li>
+        <li>
+          O objetivo deste jogo é colocar quatro peças numa linha contínua
+          vertical, horizontal ou diagonalmente.
+        </li>
+      </ul>
+    </div>
     <main id="tabuleiro">
-
+      <div class="inicial_menssage">
+        <p class="confronto">
+          Pavis Deixoto<br />
+          X<br />
+          Hudlino Caroson
+        </p>
+        <button class="iniciar">INICIAR</button>
+      </div>
     </main>
-<script src="./script.js"></script>
-</body>
+    <div class="buttons">
+      <button class="reset">RESET</button>
+      <button class="button_regras">REGRAS</button>
+    </div>
+    <img
+      class="pavisdeixoto"
+      src="/assets/img/pavis_deixoto.png"
+      alt="Pavis Deixoto"
+    />
+    <img
+      class="hudlinocaroson"
+      src="/assets/img/hudlino_caroson.png"
+      alt="Hudlino Caroson"
+    />
+
+    <audio class="trilha" src="/assets/audio/gnomes.mp3" loop></audio>
+    <script src="./js/consts.js"></script>
+    <script src="./js/assist.js"></script>
+    <script src="./js/fvictory.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
 </html>
