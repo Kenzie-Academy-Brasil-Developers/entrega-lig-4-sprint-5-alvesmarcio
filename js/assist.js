@@ -22,33 +22,38 @@ function select_player(evt) {
   }
   let selecionaDisco = coluna.children;
   for (let i = selecionaDisco.length - 1; i >= 0; i--) {
-    const rotationSpeed = Math.floor(Math.random() * 10 + 1)
-    const rotationDirection = Math.round(Math.random()) === 1 ? "rotation" : "rotationInv"
+    const rotationSpeed = Math.floor(Math.random() * 10 + 1);
+    const rotationDirection =
+      Math.round(Math.random()) === 1 ? "rotation" : "rotationInv";
     if (selecionaDisco[i].classList.length == 1 && player == true) {
       selecionaDisco[i].classList.add("player1");
-      selecionaDisco[i].style.animation = `${rotationDirection} ${rotationSpeed}s infinite linear`
+      selecionaDisco[
+        i
+      ].style.animation = `${rotationDirection} ${rotationSpeed}s infinite linear`;
       player = false;
       discoAtual = selecionaDisco[i];
       let jogador = "Pavis";
-      src_img = "assets/img/pavis_deixoto.png"
+      src_img = "assets/img/pavis_deixoto.png";
       let vitoria = victory_check(discoAtual);
-      let empate = draw()
-      let n = 1
-      victory_alert(vitoria, jogador,src_img,n);
+      let empate = draw();
+      let n = 1;
+      victory_alert(vitoria, jogador, src_img, n);
       draw_alert(empate);
       break;
     }
     if (selecionaDisco[i].classList.length == 1 && player == false) {
       selecionaDisco[i].classList.add("player2");
-      selecionaDisco[i].style.animation = `${rotationDirection} ${rotationSpeed}s infinite linear`
+      selecionaDisco[
+        i
+      ].style.animation = `${rotationDirection} ${rotationSpeed}s infinite linear`;
       player = true;
       discoAtual = selecionaDisco[i];
       let jogador = "Hudolino";
-      src_img = "assets/img/hudlino_caroson.png"
+      src_img = "assets/img/hudlino_caroson.png";
       let vitoria = victory_check(discoAtual);
-      let empate = draw()
-      let n = 2
-      victory_alert(vitoria, jogador,src_img,n);
+      let empate = draw();
+      let n = 2;
+      victory_alert(vitoria, jogador, src_img, n);
       draw_alert(empate);
       break;
     }
