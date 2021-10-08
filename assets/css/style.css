@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: "South Park";
-  src: url(/assets/southpark.ttf) format("ttf");
+  src: url(../assets/southpark.ttf) format("ttf");
 }
 
 body {
