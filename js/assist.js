@@ -58,9 +58,20 @@ function select_player(evt) {
       break;
     }
   }
+  switchPlayer(player);
 }
 
 const playTrilha = () => {
   let play = document.querySelector(".trilha");
   return play.play();
+};
+
+const switchPlayer = (player) => {
+  if (player === true) {
+    pavisdeixoto.style.display = "inherit";
+    hudlinocaroson.style.display = "none";
+  } else if (player === false) {
+    pavisdeixoto.style.display = "none";
+    hudlinocaroson.style.display = "inherit";
+  }
 };

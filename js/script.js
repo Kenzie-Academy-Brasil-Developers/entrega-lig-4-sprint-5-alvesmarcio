@@ -22,7 +22,7 @@ function reset_game() {
   buttons.style.display = "flex";
   inicial_menssage.style.display = "none";
   pavisdeixoto.style.display = "inherit";
-  hudlinocaroson.style.display = "inherit";
+  hudlinocaroson.style.display = "none";
   player = true;
   playTrilha();
   generateBoard(board, boardSize);
