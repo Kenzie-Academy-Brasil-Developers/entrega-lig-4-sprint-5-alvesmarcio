@@ -73,9 +73,13 @@ function draw_alert(empate) {
   }
 }
 function openRegras() {
+  board.removeEventListener("click", select_player);
+  reset.removeEventListener("click", reset_game);
   regras.style.display = "initial";
 }
 function closeRegras() {
+  board.addEventListener("click", select_player);
+  reset.addEventListener("click", reset_game);
   regras.style.display = "none";
 }
 

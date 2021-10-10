@@ -1,5 +1,4 @@
 :root {
-  --square-size: 10vw;
   --color-pavis: #d81c3f;
   --color-hudlino: #b266ab;
 }
@@ -23,8 +22,8 @@ body {
 #tabuleiro {
   font-family: "South Park";
   display: flex;
-  width: 90vw;
-  height: 45vh;
+  width: 300px;
+  height: 300px;
   margin: 2em auto;
   margin-bottom: 2em;
   justify-content: center;
@@ -54,8 +53,8 @@ body {
 
 .cell {
   margin: 5px;
-  height: var(--square-size);
-  width: var(--square-size);
+  height: 40px;
+  width: 40px;
   max-width: 100px;
   max-height: 100px;
   border-radius: 50%;
@@ -144,8 +143,8 @@ body {
   font-family: "South Park";
   position: absolute;
   left: 50%;
-  margin-left: -160px;
-  width: 320px;
+  margin-left: -150px;
+  width: 300px;
   height: 330px;
   background-color: black;
   color: white;
@@ -157,7 +156,7 @@ body {
 ul {
   list-style: disc;
   list-style-position: inside;
-  font-size: 24px;
+  font-size: 21px;
   margin: 0px 15px;
 }
 
@@ -250,28 +249,90 @@ ul {
 button {
   cursor: wait;
 }
-@media screen and (min-width: 768px) {
-  .pavisdeixoto, .hudlinocaroson {
-    top: 75%;
-  }
+@media  screen and (min-width:375px) {
   #tabuleiro {
-    height: 60vh;
+    width: 350px;
+    height: 310px;
   }
   
+
+  
+}
+@media screen and (min-width:425px) {
+  #tabuleiro {
+    width: 400px;
+    height: 330px;
+  }
+  .cell {
+    height: 44px;
+    width: 44px;
+  }
+  .buttons {
+    max-width: 330px;
+  }
+  
+}
+@media screen and (min-width:600px) {
+  #tabuleiro {
+    width: 530px;
+    height: 370px;
+  }
+  .cell {
+    height: 52px;
+    width: 52px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .pavisdeixoto, .hudlinocaroson {
+    top: 70%;
+  }
+  #tabuleiro {
+    width: 700px;
+    height: 420px;
+  }
+  .cell {
+    height: 64px;
+    width: 64px;
+  }
+  
+}
+@media screen and (min-width:1000px) {
+  #tabuleiro {
+    width: 870px;
+    height: 505px;
+  
+}
+.cell {
+  height: 75px;
+  width: 75px;
+}
+.pavisdeixoto {
+  width: 220px;
+  height: 220px;
+}
+.hudlinocaroson {
+  width: 180px;
+  height: 231px;
 }
 
 @media screen and (min-width: 1570px) {
   #tabuleiro {
     font-family: "South Park";
     display: flex;
-    width: 90vw;
-    height: 78vh;
+    width: 1000px;
+    height: 700px;
     margin: 5em auto;
     margin-bottom: 2em;
     justify-content: center;
     align-items: center;
     max-width: 1000px;
     box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.6);
+  }
+  .cell {
+    height: 106px;
+    width: 106px;
+
   }
 
   .buttons {
